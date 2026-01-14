@@ -1,7 +1,8 @@
 # linux-labs
 Where I'll put stuff about learning linux administration
 ______________________________________________________________
-1) Base Linux commands :
+## 1) Base Linux commands :
+
 pwd : where am I
 
 cd : change directory
@@ -40,7 +41,7 @@ alias : to create a shortcut for a command (ex cl for clear) : alias cl='clear' 
 
 exit : to exit the terminal
 
-3) User management & permissions :
+## 2) User management & permissions :
 chmod : modifies permissions for a file :
 > Symbolic (Granular modification) : u=user(owner) g=group o=others a=all // for example, to add execute permission for a user on a file : chmod u+x myfile // to remove chmod u-x myfile // you can also bulk it : user + group writing permission exemple : chmod ug+w myfile
 > Numerical change : 4=Read 2=Write 1=Execute / Then you use and add these number to fill the three u'g'o' slots : for example, for the rwx for the user (owner of the file) permission (4+2+1 =7) so you would write 7 at the user slot
