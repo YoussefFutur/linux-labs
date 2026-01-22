@@ -68,5 +68,38 @@ Stickybit : Permissions applied to a directory to ensure that files in that dire
 Symbolic : chmod +t my_shared_dir
 Numerical : chmod 1755 my_shared_dir - Stickybit is a 1 placed before the permission set
 
+## 3) Process management :
+
+ps : check runing processes. options : a : displays processes for all users u : detailed user-oriented format x : include processes not attached to any terminal (includes system daemons launched at the start (?))
+ -e : selects every process on the system -f : displays a full-format listing which includes (UID, PPID, C (Cpu usage), STIME (start time.)
+> Process states : R:Running or runnable \ S:Interruptible sleep \ D:Uninterruptible sleep \ Z:Zombie \ T:Stopped
+ 
+top : real time monitoring of the processes and other useful info (CPU usage or RAM ) or check niceness value
+
+ps -l : command used to monitor parent-child relationship between processes.
+
+kill : termination of a process
+kill -9 : forced termination, only use if "simple Kill (SIGTERM (15)) didn't work.
+kill -0 : checks a process existence without killing it
+
+# Processes in Linux : 
+Processes in Linux work with the "fork" system call. It involves an existing process cloning itself to create a nearly identical child process. This process then receives its own PID (Process ID)
+and its parent is identified with a PPID (Parent Process ID). 
+ "After forking, the child process can either continue running the same program as its parent or, more commonly, use the execve system call to load and run a new program. The execve call effectively replaces the process's memory space with that of the new program, allowing a different task to begin. This two-step "fork-exec" model is a cornerstone of how you create a process in Linux."
+As every process is the child of another, the original ancestor of all processes is the "init" process, the initialisation program created by the kernel at boot. It runs with root privilegies and manages the system.
+It cannot be terminated until the system shuts down and is responsible for spawning many of the services that keep the system up and running.
+
+Process termination : a process terminates by calling the '_exit' system call. The actions signals the kernel that the process is finished and it's ressources can be reclaimed.
+Upon exiting, the process provides a termination status to the kernel (0 by convention.)
+Before being totaly erased, the parent process must acknoledge it's child termination by using the 'wait' system call. The parent then retrieves the child's termination statues.
+This two step process ensures a proper process cleanup.
+
+Orphan processes : An orphan process is a process which parent process got terminated. It will be terminated by the init process on the system.
+
+Zombie processes : A Zombie process on the other hand, is a process that terminated but which the termination signal hasn't been reaped (call wait to) by its parent. It will stay in the process table until it is reaped.
+A few Zombie processes are normal but a lot can impact the system performances.
+In case the parent also terminates, init will adopt and reap the zombie.
+
+
 
 
