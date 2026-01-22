@@ -82,7 +82,7 @@ kill : termination of a process
 kill -9 : forced termination, only use if "simple Kill (SIGTERM (15)) didn't work.
 kill -0 : checks a process existence without killing it
 
-# Processes in Linux : 
+### Processes in Linux : 
 Processes in Linux work with the "fork" system call. It involves an existing process cloning itself to create a nearly identical child process. This process then receives its own PID (Process ID)
 and its parent is identified with a PPID (Parent Process ID). 
  "After forking, the child process can either continue running the same program as its parent or, more commonly, use the execve system call to load and run a new program. The execve call effectively replaces the process's memory space with that of the new program, allowing a different task to begin. This two-step "fork-exec" model is a cornerstone of how you create a process in Linux."
