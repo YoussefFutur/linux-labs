@@ -51,7 +51,7 @@ sudo apt update && \
 sudo apt install nginx
 
 Startup nginx, and verify that its up and runing using the curl command :
-curl -T 127.0.0.1
+curl -I 127.0.0.1
 
 Desired output :
 HTTP/1.1 200 OK
