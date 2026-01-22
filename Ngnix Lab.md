@@ -65,7 +65,7 @@ Main configuration : /etc/nginx/nginx.conf
 Sites : /etc/nginx/sites-available/
 Active Sites : /etc/nginx/sites-enabled/
 Logs : 
-  access : /var/logs/nginx/access.log
+  access : /var/log/nginx/access.log
   error : /var/log/nginx/error.log
 
 ### Manage the service
